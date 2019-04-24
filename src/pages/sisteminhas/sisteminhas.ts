@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SistemasService } from '../../services/domain/sistemas.service';
 
 /**
  * Generated class for the SisteminhasPage page.
@@ -15,11 +16,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SisteminhasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              public sistemaService: SistemasService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SisteminhasPage');
+    this.sistemaService.findAll()
+        .subscribe(response =>{console.log(response);})        
   }
 
 }
