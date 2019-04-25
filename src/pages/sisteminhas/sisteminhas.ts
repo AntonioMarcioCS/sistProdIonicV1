@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SistemasService } from '../../services/domain/sistemas.service';
+import { SistemaDTO } from '../../models/sistemas.dto';
 
 /**
  * Generated class for the SisteminhasPage page.
@@ -16,6 +17,8 @@ import { SistemasService } from '../../services/domain/sistemas.service';
 })
 export class SisteminhasPage {
 
+  items: SistemaDTO[];
+
   constructor(
               public navCtrl: NavController, 
               public navParams: NavParams,
@@ -24,7 +27,9 @@ export class SisteminhasPage {
 
   ionViewDidLoad() {
     this.sistemaService.findAll()
-        .subscribe(response =>{console.log(response);})        
+        .subscribe(response =>{
+          this.items = response;
+        },
+        error=>{});        
   }
-
 }
