@@ -12,10 +12,10 @@ import { SistemaDTO } from '../../models/sistemas.dto';
 
 @IonicPage()
 @Component({
-  selector: 'page-sisteminhas',
-  templateUrl: 'sisteminhas.html',
+  selector: 'page-sistemas',
+  templateUrl: 'sistemas.html'
 })
-export class SisteminhasPage {
+export class SistemasPage {
 
   items: SistemaDTO[];
 

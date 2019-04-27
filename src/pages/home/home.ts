@@ -29,12 +29,10 @@ export class HomePage {
   }
   
   login() {
-    console.log(this.creds);
-    this.navCtrl.setRoot('SisteminhasPage');
     this.auth.authenticate(this.creds)
       .subscribe(response => {
-        console.log(response.headers.get('Authorization'));
-        this.navCtrl.setRoot('SisteminhasPage');
+        this.auth.successfulLogin(response.headers.get('Authorization'));
+        this.navCtrl.setRoot('BemVindoPage');
       },
       error => {});    
   }
