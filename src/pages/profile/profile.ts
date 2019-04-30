@@ -29,8 +29,15 @@ export class ProfilePage {
           response =>{
             this.usuario=response;
             //busca imagem
-          },error=>{}
-        )
+          },error=>{
+            if(error.status == 403){
+              this.navCtrl.setRoot('HomePage');    
+            }
+
+          });
+    }
+    else{
+      this.navCtrl.setRoot('HomePage');
     }
   }
   getImageIfExists() {
