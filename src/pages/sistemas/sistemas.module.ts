@@ -10,4 +10,4 @@ import { SistemasPage } from './sistemas';
     IonicPageModule.forChild(SistemasPage),
   ],
 })
-export class SisteminhasPageModule {}
+export class SistemasPageModule {}

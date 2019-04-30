@@ -27,9 +27,9 @@ export class SistemasPage {
 
   ionViewDidLoad() {
     this.sistemaService.findAll()
-        .subscribe(response =>{
-          this.items = response;
-        },
-        error=>{});        
+      .subscribe(response => {
+        this.items = response;
+      },
+      error => {});
   }
 }
