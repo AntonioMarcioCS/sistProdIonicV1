@@ -12,12 +12,7 @@ export class SistemasService{
     constructor(public http: HttpClient, public storage: StorageService){
 
     }
-
     findAll(): Observable<SistemaDTO[]>{
-        let token = this.storage.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-        
-        return this.http.get<SistemaDTO[]>(`${API_CONFIG.baseUrl}/sistemas`,
-        {'headers':authHeader});
+        return this.http.get<SistemaDTO[]>(`${API_CONFIG.baseUrl}/sistemas`);
     }
 }
