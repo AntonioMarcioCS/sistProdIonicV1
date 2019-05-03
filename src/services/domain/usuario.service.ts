@@ -8,7 +8,8 @@ import { StorageService } from "../storage.service";
 @Injectable()
 export class UsuarioService{
 
-    constructor(public http: HttpClient, public storage: StorageService ){        
+    constructor(public http: HttpClient, 
+                public storage: StorageService ){        
 
     }
 
@@ -20,5 +21,16 @@ export class UsuarioService{
         let url = `${API_CONFIG.bucketBaseUrl}/cp${id}.jpg`
         return this.http.get(url, {responseType : 'blob'});
     } 
+
+    insert(obj : UsuarioDTO){
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/usuarios`,
+            obj,
+            {
+                observe:'response',
+                responseType: 'text'
+            }
+        );
+    }
 
 }

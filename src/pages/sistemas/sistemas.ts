@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SistemasService } from '../../services/domain/sistemas.service';
 import { SistemaDTO } from '../../models/sistemas.dto';
 
-/**
- * Generated class for the SisteminhasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-sistemas',
@@ -28,7 +21,7 @@ export class SistemasPage {
   ionViewDidLoad() {
     this.sistemaService.findAll()
       .subscribe(response => {
-        this.items = response;
+        this.items = response['content'];
       },
       error => {});
   }
