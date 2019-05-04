@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CriatorioService } from '../../services/domain/criatorio.service';
 import { CriatorioDTO } from '../../models/criatorio.dto';
+import { CriatorioService } from '../../services/domain/criatorio.service';
+
 
 @IonicPage()
 @Component({
@@ -9,11 +10,12 @@ import { CriatorioDTO } from '../../models/criatorio.dto';
   templateUrl: 'criatorios.html',
 })
 export class CriatoriosPage {
+  
   items: CriatorioDTO[];
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    public criatorioService: CriatorioService) {
+      public navCtrl: NavController, 
+      public navParams: NavParams,
+      public criatorioService: CriatorioService) {
   }
 
   ionViewDidLoad() {

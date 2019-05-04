@@ -1,0 +1,25 @@
+<ion-header> 
+    <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>{{item?.nome}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title>
+          {{item?.nome}}
+        </ion-card-title>
+        <h3>Medidas</h3>  
+          <p>Comprimento: {{item?.comprimento}} m</p>
+          <p>Largura: {{item?.largura}} m</p>
+          <p>Criado em: {{item?.data}}</p>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button block outline (click)="showCanteiros(item.id)">Canteiros</button>
+    <button ion-button block outline (click)="showCriatorios(item.id)">Criatórios</button>
+</ion-content>

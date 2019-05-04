@@ -9,9 +9,14 @@ import { StorageService } from "../storage.service";
 @Injectable()
 export class SistemasService{
     
-    constructor(public http: HttpClient, public storage: StorageService){
+    constructor(public http: HttpClient, 
+                public storage: StorageService){
 
     }
+    findById(sistema_id:string){
+        return this.http.get<SistemaDTO>(`${API_CONFIG.baseUrl}/sistemas/${sistema_id}`)
+    }
+
     findAll(): Observable<SistemaDTO[]>{
         return this.http.get<SistemaDTO[]>(`${API_CONFIG.baseUrl}/sistemas`);
     }
