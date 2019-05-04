@@ -4,5 +4,5 @@ export interface SistemaDTO{
     data: Date;
     comprimento: string;
     largura: string;
-    usuario?: Number;
+    usuario?: number;
 }

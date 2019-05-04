@@ -6,5 +6,4 @@ export interface UsuarioDTO{
         tipo: string;
         senha: string;
         imageUrl?: string;
-
 }
