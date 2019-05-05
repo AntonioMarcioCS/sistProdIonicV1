@@ -20,4 +20,15 @@ export class SistemasService{
     findAll(): Observable<SistemaDTO[]>{
         return this.http.get<SistemaDTO[]>(`${API_CONFIG.baseUrl}/sistemas`);
     }
+
+    insert(obj : SistemaDTO){
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/sistemas`,
+            obj,
+            {
+                observe:'response',
+                responseType: 'text'
+            }
+        );
+    }
 }

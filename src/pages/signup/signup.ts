@@ -27,7 +27,7 @@ export class SignupPage {
         cpf : ['06134596280', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
         senha : ['123', [Validators.required]]      
       });
-  }
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
