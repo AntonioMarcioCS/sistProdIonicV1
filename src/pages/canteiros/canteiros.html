@@ -1,16 +1,18 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Canteiros</ion-title>
+    <ion-title>{{sistema?.nome}}: Canteiros </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <button ion-button block (click)="showNovoCanteiro()">Adicionar Canteiro</button>
+  <h2>Canteiros:</h2>
   <ion-list>
-    <button ion-item *ngFor="let item of items">
+    <button ion-item *ngFor="let canteiro of canteiros" (click)="showDetalhe(canteiro.id)">
       <ion-thumbnail item-start>
-          <img [src]="item.imageUrl || 'assets/imgs/prod.jpg'">
+          <img [src]="canteiro.imageUrl || 'assets/imgs/canteiro02.png'">
       </ion-thumbnail>
-      <h2>{{ item.nome }}</h2>
+      <h2>{{ canteiro.nome }}</h2>
       <p>Canteiro</p>
     </button>
   </ion-list>

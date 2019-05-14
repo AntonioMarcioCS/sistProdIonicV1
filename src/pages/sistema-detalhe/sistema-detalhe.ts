@@ -18,12 +18,13 @@ export class SistemaDetalhePage {
     public navParams: NavParams, 
     public canteiroService: CanteiroService,
     public criatorioService: CriatorioService,
-    public sistemaService: SistemasService ) {
+    public sistemasService: SistemasService ) {
   }
 
   ionViewDidLoad() {
     let sistema_id = this.navParams.get('sistema');
-    this.sistemaService.findById(sistema_id)
+    
+    this.sistemasService.findById(sistema_id)
       .subscribe(response => {
       this.item = response;
     },

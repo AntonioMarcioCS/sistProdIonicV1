@@ -36,7 +36,6 @@ export class InsertSistemasPage {
       });
     }
 
-
   ionViewDidLoad() {
       this.loadData();
   }

@@ -1,27 +1,31 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Novo Sistema</ion-title>
+    <ion-title>{{sistema?.nome}}: Novo Canteiro</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <form [formGroup]="formGroup" (ngSubmit)="signupSistema(); $event.preventDefault()">
+  <h2>Novo Canteiro:</h2>
+  <form [formGroup]="formGroup" (ngSubmit)="novoCanteiro(); $event.preventDefault()">
     <ion-item>
       <ion-label stacked>Nome*</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
+    
     <ion-item>
       <ion-label stacked>Comprimento*</ion-label>
       <ion-input formControlName="comprimento" type="text"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.comprimento.dirty && formGroup.controls.comprimento.errors" margin-left>Valor inválido</p>
+    
     <ion-item>
       <ion-label stacked>Largura*</ion-label>
       <ion-input formControlName="largura" type="text"></ion-input>
     </ion-item>
     <p class="danger" *ngIf="formGroup.controls.largura.dirty && formGroup.controls.largura.errors" margin-left>Valor inválido</p>
     
-    <button ion-button block type="submit" [disabled]="formGroup.invalid">Adicionar Sistema</button>
+    
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Adicionar Canteiro</button>
   </form>
 </ion-content>

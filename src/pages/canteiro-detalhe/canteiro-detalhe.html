@@ -1,0 +1,26 @@
+<ion-header> 
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{canteiro?.nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button block outline (click)="showPlantar(canteiro?.id)">Plantar</button>
+  <ion-card ion-item *ngFor="let plantio of plantios">
+    <ion-card-content>
+      <ion-card-title>
+        {{plantio?.nome}}
+      </ion-card-title>  
+      <p>Quantidade: {{plantio?.qtd}}</p>
+      <p>Previsão de Colheita: {{plantio?.colheita}}</p>
+      <button ion-button block outline>Colher</button>
+      <button ion-button block outline>Irrigar</button>
+      <button ion-button block outline>Fertilizar</button>
+    </ion-card-content>
+  </ion-card>
+  
+
+</ion-content>

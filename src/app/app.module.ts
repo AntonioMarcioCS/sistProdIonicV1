@@ -15,6 +15,8 @@ import { UsuarioService } from '../services/domain/usuario.service';
 import { AuthInterceptorProvider } from '../interceptors/auth-interceptors';
 import { CanteiroService } from '../services/domain/canteiro.service';
 import { CriatorioService } from '../services/domain/criatorio.service';
+import { PlantioService } from '../services/domain/plantio.service';
+import { CulturaService } from '../services/domain/cultura.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { CriatorioService } from '../services/domain/criatorio.service';
     StorageService,
     UsuarioService,
     CanteiroService,
-    CriatorioService
+    CriatorioService,
+    PlantioService,
+    CulturaService
   ]
 })
 export class AppModule {}

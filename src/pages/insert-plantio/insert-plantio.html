@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Novo Plantio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="signupPlantar(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome*</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
+    
+    <ion-item>
+      <ion-label stacked>Quantidade*</ion-label>
+      <ion-input formControlName="qtd" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.qtd.dirty && formGroup.controls.qtd.errors" margin-left>Valor inválido</p>
+    
+    <ion-item>
+      <ion-label stacked>Cultura*</ion-label>
+      <ion-select formControlName="culturaId">
+        <ion-option *ngFor="let cultura of culturas; first as f" [value]="cultura.id" [selected]="f">{{cultura.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Plantar</button>
+  </form>
+</ion-content>
