@@ -20,4 +20,21 @@ export class CriatorioService{
     findBySistema(sistema_id:string){
         return this.http.get(`${API_CONFIG.baseUrl}/criatorios/?sistemas=${sistema_id}`);
     }
+    findById(id:string): Observable<CriatorioDTO>{
+        return this.http.get<CriatorioDTO>(`${API_CONFIG.baseUrl}/criatorios/${id}`);
+    }
+    findAnimaisByCriatorio(criatorio_id:string){
+        return this.http.get(`${API_CONFIG.baseUrl}/animais/?criatorio=${criatorio_id}`); 
+    }
+
+    insert(obj : CriatorioDTO){
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/criatorios`,
+            obj,
+            {
+                observe:'response',
+                responseType: 'text'
+            }
+        );
+    }
 }

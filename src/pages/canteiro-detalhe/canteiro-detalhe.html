@@ -8,19 +8,21 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+  <img src="assets/imgs/canteiros.jpg " alt="logo">
   <button ion-button block outline (click)="showPlantar(canteiro?.id)">Plantar</button>
   <ion-card ion-item *ngFor="let plantio of plantios">
     <ion-card-content>
       <ion-card-title>
         {{plantio?.nome}}
       </ion-card-title>  
-      <p>Quantidade: {{plantio?.qtd}}</p>
-      <p>Previsão de Colheita: {{plantio?.colheita}}</p>
+      <h3>Quantidade: {{plantio?.qtd}}</h3>
+      <h4>Previsão de Colheita: {{plantio?.colheita}}</h4>
       <button ion-button block outline>Colher</button>
       <button ion-button block outline>Irrigar</button>
       <button ion-button block outline>Fertilizar</button>
     </ion-card-content>
   </ion-card>
-  
-
 </ion-content>

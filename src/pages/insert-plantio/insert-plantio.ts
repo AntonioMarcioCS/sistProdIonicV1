@@ -30,7 +30,6 @@ export class InsertPlantioPage {
       this.formGroup = this.formBuilder.group({
         nome: ['Nome do Plantio', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
         data:[],
-        //colheita:[],
         qtd: [ ,[Validators.required]],
         canteiroId:[],
         culturaId:[, [Validators.required]] 

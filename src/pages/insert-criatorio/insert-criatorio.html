@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{sistema?.nome}}: Novo Criatório</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Novo Criatório:</h2>
+    <form [formGroup]="formGroup" (ngSubmit)="novoCriatorio(); $event.preventDefault()">
+      <ion-item>
+        <ion-label stacked>Nome*</ion-label>
+        <ion-input formControlName="nome" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
+      
+      <ion-item>
+          <ion-label stacked>Tipo*</ion-label>
+          <ion-select formControlName="tipo">
+            <ion-option value="1">Chiqueiro</ion-option>
+            <ion-option value="2">Poleiro</ion-option>
+            <ion-option value="3">Tanque</ion-option>
+          </ion-select>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label stacked>Comprimento*</ion-label>
+        <ion-input formControlName="comprimento" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.comprimento.dirty && formGroup.controls.comprimento.errors" margin-left>Valor inválido</p>
+      
+      <ion-item>
+        <ion-label stacked>Largura*</ion-label>
+        <ion-input formControlName="largura" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.largura.dirty && formGroup.controls.largura.errors" margin-left>Valor inválido</p>
+
+      <ion-item>
+          <ion-label stacked>Profundidade*</ion-label>
+          <ion-input formControlName="profundidade" type="text"></ion-input>
+      </ion-item>
+
+      <button ion-button block type="submit" [disabled]="formGroup.invalid">Adicionar Criatório</button>
+    </form>
+</ion-content>

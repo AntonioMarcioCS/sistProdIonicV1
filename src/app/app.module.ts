@@ -17,6 +17,7 @@ import { CanteiroService } from '../services/domain/canteiro.service';
 import { CriatorioService } from '../services/domain/criatorio.service';
 import { PlantioService } from '../services/domain/plantio.service';
 import { CulturaService } from '../services/domain/cultura.service';
+import { AnimalService } from '../services/domain/animal.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CulturaService } from '../services/domain/cultura.service';
     CanteiroService,
     CriatorioService,
     PlantioService,
-    CulturaService
+    CulturaService,
+    AnimalService
   ]
 })
 export class AppModule {}

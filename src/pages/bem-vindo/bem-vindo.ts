@@ -21,7 +21,7 @@ export class BemVindoPage {
   }
   
   btnSistemas(){
-        this.navCtrl.push('SistemasPage');
+        this.navCtrl.setRoot('SistemasPage');
   }
   
   btnNovoSist(usuario_id: string){

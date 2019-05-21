@@ -1,10 +1,14 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>BemVindo</ion-title>
-  </ion-navbar>
+<ion-header> 
+    <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Bem Vindo</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <img src="assets/imgs/mandala.jpg " alt="logo">
   <button ion-button block (click)="btnSistemas()">Meus Sisteminhas</button>
   <button ion-button block (click)="btnNovoSist()">Criar novo sisteminha</button>
   <button ion-button block outline>Passo a passo</button>

@@ -1,0 +1,46 @@
+<!--
+  Generated template for the InsertAnimalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Inserir Animal</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="signupInserir(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome*</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor inválido</p>
+    
+    <ion-item>
+        <ion-label>Nascimento*</ion-label>
+        <ion-datetime formControlName="nascimento" display-format="DD-MM-YYYYTHH:mm"></ion-datetime>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.nascimento.dirty && formGroup.controls.nascimento.errors" margin-left>Valor inválido</p>
+    
+    <ion-item>
+        <ion-label stacked>Tipo*</ion-label>
+        <ion-select formControlName="tipo">
+          <ion-option value="1">Abelhas</ion-option>
+          <ion-option value="2">Codornas</ion-option>
+          <ion-option value="3">Galinhas</ion-option>
+          <ion-option value="4" selected>Peixes</ion-option>
+          <ion-option value="5">Porcos</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Raça*</ion-label>
+      <ion-input formControlName="raca" type="text"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.raca.dirty && formGroup.controls.raca.errors" margin-left>Valor inválido</p>
+
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Inserir Animal</button>
+  </form>
+</ion-content>

@@ -24,7 +24,7 @@
         <ion-option *ngFor="let cultura of culturas; first as f" [value]="cultura.id" [selected]="f">{{cultura.nome}}</ion-option>
       </ion-select>
     </ion-item>
-    
+
     <button ion-button block type="submit" [disabled]="formGroup.invalid">Plantar</button>
   </form>
 </ion-content>
