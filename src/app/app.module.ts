@@ -18,6 +18,8 @@ import { CriatorioService } from '../services/domain/criatorio.service';
 import { PlantioService } from '../services/domain/plantio.service';
 import { CulturaService } from '../services/domain/cultura.service';
 import { AnimalService } from '../services/domain/animal.service';
+import { IrrigacaoService } from '../services/domain/irrigacao.service';
+import { FertilizanteService } from '../services/domain/fertilizante.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { AnimalService } from '../services/domain/animal.service';
     CriatorioService,
     PlantioService,
     CulturaService,
-    AnimalService
+    AnimalService,
+    IrrigacaoService,
+    FertilizanteService
   ]
 })
 export class AppModule {}

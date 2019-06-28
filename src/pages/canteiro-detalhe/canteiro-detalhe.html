@@ -8,21 +8,24 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content></ion-refresher-content>
-      </ion-refresher>
-  <img src="assets/imgs/canteiros.jpg " alt="logo">
-  <button ion-button block outline (click)="showPlantar(canteiro?.id)">Plantar</button>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <!--<img src="assets/imgs/canteiros.jpg " alt="logo">-->
   <ion-card ion-item *ngFor="let plantio of plantios">
     <ion-card-content>
+      <ion-thumbnail item-start>
+        <img [src]="'assets/imgs/' + plantio.culturaId + '.png'" style="margin: 0 auto 0">
+      </ion-thumbnail> 
       <ion-card-title>
         {{plantio?.nome}}
       </ion-card-title>  
-      <h3>Quantidade: {{plantio?.qtd}}</h3>
-      <h4>Previsão de Colheita: {{plantio?.colheita}}</h4>
-      <button ion-button block outline>Colher</button>
-      <button ion-button block outline>Irrigar</button>
-      <button ion-button block outline>Fertilizar</button>
+      <h2>Quantidade: {{plantio?.qtd}}</h2>
+      <h2>Previsão de Colheita: {{plantio?.colheita}}</h2>
+      <button ion-button color="secondary"  small (click)="showIrrigar(plantio?.id)">Irrigação</button>
+      <button ion-button color="warning"  small (click)="showFertilizar(plantio?.id)">Fertil</button>
+      <button ion-button color="success"  small>Colher</button>
     </ion-card-content>
   </ion-card>
+  <button ion-button block (click)="showPlantar(canteiro?.id)">Plantar</button>
 </ion-content>

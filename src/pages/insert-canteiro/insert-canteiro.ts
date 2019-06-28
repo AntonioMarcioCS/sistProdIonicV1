@@ -60,6 +60,7 @@ export class InsertCanteiroPage {
         {
           text: 'Ok',
           handler: () => {
+            this.navCtrl.getPrevious().data.sistema = this.sistema.id;
             this.navCtrl.pop();
           }
         }

@@ -6,10 +6,7 @@
     <ion-title>{{criatorio?.nome}}</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <img src="assets/imgs/tanque.jpg " alt="logo">
-  <button ion-button block outline (click)="showAdicionar(criatorio?.id)">Adicionar</button>
+<ion-content padding> 
   <ion-card ion-item *ngFor="let animal of animais">
     <ion-card-content>
       <ion-card-title>
@@ -17,9 +14,10 @@
       </ion-card-title>  
       <p>Raça: {{animal?.raca}}</p>
       <p>Nascido em: {{animal?.nascimento}}</p>
-      <button ion-button block outline>Retirar</button>
-      <button ion-button block outline>Inserir</button>
-      <button ion-button block outline>Alimentar</button>
+      <button ion-button color="secondary" small>Inserir</button>
+      <button ion-button color="warning" small>Alimentar</button>
+      <button ion-button color="success" small>Retirar</button>
     </ion-card-content>
   </ion-card>
+  <button ion-button block (click)="showAdicionar(criatorio?.id)">Adicionar animal</button>
 </ion-content>

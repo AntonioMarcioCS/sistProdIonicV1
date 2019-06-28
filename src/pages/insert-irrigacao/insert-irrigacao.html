@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Irrigações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>{{plantio?.nome}}</h2>
+  <ion-item-group>
+  <ion-item-divider color="light">Irrigações realizadas:</ion-item-divider>
+  <ion-list ion-item *ngFor="let irrigacao of irrigacoes">
+    <ion-item>
+      <h2>Data: {{irrigacao?.data}}</h2>
+      <h2>Tempo de irrigação: {{irrigacao?.tempo}} horas</h2>
+    </ion-item> 
+  </ion-list>
+  </ion-item-group>
+
+  <ion-item-group>
+  <ion-item-divider color="light">Nova irrigação:</ion-item-divider>
+  <form [formGroup]="formGroup" (ngSubmit)="signupIrrigar(); $event.preventDefault()">      
+    <ion-item>
+      <ion-label>Tempo de irrigação:</ion-label>
+      <ion-select formControlName="tempo">
+        <ion-option value="0.5" selected="true">30 min</ion-option>
+        <ion-option value="1.0">1 hora</ion-option>
+        <ion-option value="1.5">1 hora e 30min</ion-option>
+        <ion-option value="2.0">2 horas</ion-option>
+        <ion-option value="2.5">2 horas e 30min</ion-option>
+        <ion-option value="3.0">3 horas</ion-option>
+        <ion-option value="3.5">3 horas e 30min</ion-option>
+        <ion-option value="4.0">4 horas</ion-option>
+        <ion-option value="4.5">4 horas e 30min</ion-option>
+        <ion-option value="5.0">5 horas</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Adicionar Irrigação</button>
+  </form>
+  </ion-item-group>
+
+</ion-content>

@@ -5,15 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button block (click)="showNovoCanteiro()">Adicionar Canteiro</button>
-  <h2>Canteiros:</h2>
+  <ion-item>
+    <img src="assets/imgs/canteiros_logo.png" alt="Criatórios:" style="width: 60%">
+  </ion-item>
   <ion-list>
     <button ion-item *ngFor="let canteiro of canteiros" (click)="showDetalhe(canteiro.id)">
-      <ion-thumbnail item-start>
+      <!--<ion-thumbnail item-start>
           <img [src]="canteiro.imageUrl || 'assets/imgs/canteiro02.png'">
-      </ion-thumbnail>
-      <h2>{{ canteiro.nome }}</h2>
-      <p>Canteiro</p>
+      </ion-thumbnail>-->
+      <h1>{{ canteiro.nome }}</h1>
+      
     </button>
   </ion-list>
+  <button ion-button block (click)="showNovoCanteiro()">Adicionar Canteiro</button>
 </ion-content>

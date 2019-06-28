@@ -15,35 +15,40 @@ export class CanteirosPage {
 
   sistema: SistemaDTO;
   canteiros: CanteiroDTO[];
-  
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              public canteiroService: CanteiroService,
-              public sistemasService: SistemasService) {
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public canteiroService: CanteiroService,
+    public sistemasService: SistemasService) {
   }
 
-  ionViewDidLoad() {
+  /*ionViewDidLoad() {
+    this.lerDados();
+  }*/
+  ionViewDidEnter(){
+    this.lerDados();
+  }
+
+  lerDados(){
     let sistema_id = this.navParams.get("sistema");
-    
     this.canteiroService.findBySistema(sistema_id)
-      .subscribe(response=>{
+      .subscribe(response => {
         this.canteiros = response['content'];
       },
-    error =>{});
-    
+        error => { });
+
     this.sistemasService.findById(sistema_id)
       .subscribe(response => {
         this.sistema = response;
-    },
-    error => {});
-
+      },
+        error => { });
   }
 
-  showDetalhe(canteiro_id:string){
-    this.navCtrl.push('CanteiroDetalhePage',{canteiro_id: canteiro_id});
+  showDetalhe(canteiro_id: string) {
+    this.navCtrl.push('CanteiroDetalhePage', { canteiro_id: canteiro_id });
   }
 
-  showNovoCanteiro(){
-    this.navCtrl.push('InsertCanteiroPage',{sistema_id: this.sistema.id});
+  showNovoCanteiro() {
+    this.navCtrl.push('InsertCanteiroPage', { sistema_id: this.sistema.id });
   }
 }

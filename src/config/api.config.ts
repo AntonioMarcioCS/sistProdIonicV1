@@ -1,4 +1,4 @@
 export const API_CONFIG = {
-    baseUrl: "http://localhost:8081",
+    baseUrl: "https://sistprodv1.herokuapp.com",
     bucketBaseUrl: "falta fazer o baucket na Amazom"
 }

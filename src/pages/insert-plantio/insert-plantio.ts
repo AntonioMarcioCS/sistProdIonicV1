@@ -34,7 +34,7 @@ export class InsertPlantioPage {
         canteiroId:[],
         culturaId:[, [Validators.required]] 
       });  
-  }
+    }
 
   ionViewDidLoad() {
     let canteiro_id = this.navParams.get("canteiro_id");
@@ -58,6 +58,8 @@ export class InsertPlantioPage {
   }
 
   showInsertOk(){
+    let canteiroId = this.navParams.get("canteiro_id");;
+    let sistemaId = this.navParams.get("sistema");
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',
       message: 'Novo plantio cadastrado com sucesso',
@@ -66,7 +68,9 @@ export class InsertPlantioPage {
         {
           text: 'Ok',
           handler: () => {
-            this.navCtrl.pop();
+            //usando o getPrevius para enviar parametro de volta através do pop
+            this.navCtrl.getPrevious().data.canteiro_id = canteiroId;
+            this.navCtrl.pop();          
           }
         }
       ]

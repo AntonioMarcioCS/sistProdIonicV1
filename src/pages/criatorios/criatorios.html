@@ -5,16 +5,16 @@
   </ion-header>
   
   <ion-content padding>
-    <img src="assets/imgs/criatorios.jpg " alt="logo">
-    <button ion-button block (click)="showNovoCriatorio()">Adicionar Criatório</button>
-    <h2>Criatórios:</h2>
+    <ion-item>
+      <img src="assets/imgs/criatorios_logo.png" alt="Criatórios:" style="width: 60%">
+    </ion-item>
     <ion-list>
       <button ion-item *ngFor="let criatorio of criatorios" (click)="showDetalhe(criatorio.id)">
-        <ion-thumbnail item-start>
+        <!--<ion-thumbnail item-start>
             <img [src]="criatorio.imageUrl || 'assets/imgs/canteiro02.png'">
-        </ion-thumbnail>
-        <h2>{{ criatorio.nome }}</h2>
-        <p>Criatório</p>
+        </ion-thumbnail>-->
+        <h1>{{ criatorio.nome }}</h1>
       </button>
     </ion-list>
+    <button ion-button block (click)="showNovoCriatorio()">Adicionar Criatório</button>
   </ion-content>

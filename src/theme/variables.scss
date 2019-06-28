@@ -35,13 +35,19 @@ $app-direction: ltr;
 
 $colors: (
   primary:    rgb(8, 206, 107),
-  secondary:  #006400,
+  secondary:  #2170e7,
   danger:     #f71e1e,
   light:      #f4f4f4,
-  dark:       rgb(10, 10, 10)
+  dark:       rgb(10, 10, 10),
+  warning:    #e9ec28,
+  success:    #2cf035
 );
 
-
+$toolbar-background: rgb(8, 206, 107);
+$toolbar-border-color: #449922;
+$toolbar-text-color: #FFFFFF;
+$toolbar-active-color: #559922;
+$toolbar-inactive-color: #449922;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

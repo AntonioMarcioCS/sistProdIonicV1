@@ -16,28 +16,28 @@ import { getLocaleDateFormat } from '@angular/common';
 export class InsertSistemasPage {
 
   formGroup: FormGroup;
-  usuario:UsuarioDTO;
+  usuario: UsuarioDTO;
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
     public usuarioService: UsuarioService,
     public sistemaService: SistemasService,
     public storage: StorageService,
-    
+
     public alertCtrl: AlertController) {
-      this.formGroup = this.formBuilder.group({
-        nome: ['Nome do Sistema', [Validators.required, Validators.minLength(5), Validators.maxLength(120)]],
-        comprimento: ['em m²', [Validators.required]],
-        data:[],
-        largura : ['em m²', [Validators.required]],
-        usuarioId:[]      
-      });
-    }
+    this.formGroup = this.formBuilder.group({
+      nome: ['Nome do Sistema', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      comprimento: ['', [Validators.required]],
+      data: [],
+      largura: ['', [Validators.required]],
+      usuarioId: []
+    });
+  }
 
   ionViewDidLoad() {
-      this.loadData();
+    this.loadData();
   }
   loadData() {
     let localUser = this.storage.getLocalUser();
@@ -46,24 +46,24 @@ export class InsertSistemasPage {
         .subscribe(response => {
           this.usuario = response as UsuarioDTO;
           this.formGroup.controls.usuarioId.setValue(this.usuario.id);
-          this.formGroup.controls.data.setValue(getLocaleDateFormat);         
+          this.formGroup.controls.data.setValue(getLocaleDateFormat);
         },
-        error => {
-          if (error.status == 403) {
-            this.navCtrl.setRoot('HomePage');
-          }
-        });
+          error => {
+            if (error.status == 403) {
+              this.navCtrl.setRoot('HomePage');
+            }
+          });
     }
     else {
       this.navCtrl.setRoot('HomePage');
-    }    
+    }
   }
-  signupSistema(){
+  signupSistema() {
     this.sistemaService.insert(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();
       },
-      error => {});
+        error => { });
   }
   showInsertOk() {
     let alert = this.alertCtrl.create({
@@ -74,7 +74,7 @@ export class InsertSistemasPage {
         {
           text: 'Ok',
           handler: () => {
-            this.navCtrl.pop();
+            this.navCtrl.setRoot('SistemasPage');
           }
         }
       ]

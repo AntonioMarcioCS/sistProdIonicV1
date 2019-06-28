@@ -8,13 +8,17 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-avatar>
+  <!--<img class="circle" src="assets/imgs/SistProd1_Logo.png" alt="logo">-->
+  </ion-avatar>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="showDetalhe(item.id)">
       <ion-thumbnail item-start>
-          <img [src]="item.imageUrl || 'assets/imgs/mandala.jpg'">
+          <img [src]="item.imageUrl || 'assets/imgs/SistProd1_Logo.png'">
       </ion-thumbnail>
       <h2>{{ item.nome }}</h2>
-      <p>sistemas</p>
+      
     </button>
   </ion-list>
+  <button ion-button block (click)="btnNovoSist()">Criar novo sisteminha</button>
 </ion-content>

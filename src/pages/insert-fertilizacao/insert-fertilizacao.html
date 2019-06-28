@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Fertilizações</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <h2>{{plantio?.nome}}</h2>
+    <ion-item-group>
+    <ion-item-divider color="light">Fertlizações realizadas:</ion-item-divider>
+    <ion-list ion-item *ngFor="let fertilizacao of fertilizacoes">
+      <ion-item>
+        <h2>Data: {{fertilizacao?.data}}</h2>
+        <p>Descrição: {{fertilizacao?.descricao}} </p>
+        <h2>Quantidade aplicada:{{fertilizacao?.qtd}} </h2>
+      </ion-item> 
+    </ion-list>
+    </ion-item-group>
+  
+    <ion-item-group>
+    <ion-item-divider color="light">Nova fertilização:</ion-item-divider>
+    <form [formGroup]="formGroup" (ngSubmit)="signupFertilizar(); $event.preventDefault()">      
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea formControlName="descricao" maxLength="500" 
+          placeholder="Forneça mais informações,  tipo, unidade de medida, etc...">
+            
+        </ion-textarea>
+        <!--<ion-input formControlName="descricao" type="text"></ion-input>-->
+      </ion-item>
+         
+      <ion-item>
+          <ion-label stacked>Quantidade*</ion-label>
+          <ion-input formControlName="qtd" type="text"></ion-input>
+      </ion-item>
+      <p class="danger" *ngIf="formGroup.controls.qtd.dirty && formGroup.controls.qtd.errors" margin-left>Valor inválido</p>  
+      
+      <button ion-button block type="submit" [disabled]="formGroup.invalid">Adicionar Fertilização</button>
+    </form>
+    </ion-item-group>
+  
+  </ion-content>
+  

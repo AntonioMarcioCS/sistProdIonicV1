@@ -28,6 +28,9 @@ export class SistemasPage {
   showDetalhe(sistema_id:string){
     this.navCtrl.push('SistemaDetalhePage',{sistema: sistema_id});
   }
+  btnNovoSist(){
+    this.navCtrl.setRoot('InsertSistemasPage');
+  }
 
  
 }

@@ -58,7 +58,8 @@ export class InsertCriatorioPage {
         {
           text: 'Ok',
           handler: () => {
-            this.navCtrl.push('SistemaDetalhePage');
+            this.navCtrl.getPrevious().data.sistema = this.sistema.id;
+            this.navCtrl.pop();
           }
         }
       ]

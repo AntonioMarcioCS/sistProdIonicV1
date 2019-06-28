@@ -21,7 +21,13 @@ export class CriatoriosPage {
       public sistemasService: SistemasService) {
   }
 
-  ionViewDidLoad() {
+  /*ionViewDidLoad() {
+     
+  }*/
+  ionViewDidEnter(){
+    this.lerDados();
+  }
+  lerDados(){
     let sistema_id = this.navParams.get("sistema");
     this.criatorioService.findBySistema(sistema_id)
       .subscribe(response=>{
@@ -32,9 +38,8 @@ export class CriatoriosPage {
       .subscribe(response => {
         this.sistema = response;
     },
-    error => {});  
+    error => {}); 
   }
-
   showDetalhe(criatorio_id:string){
     this.navCtrl.push('CriatorioDetalhePage',{criatorio_id: criatorio_id});
   }

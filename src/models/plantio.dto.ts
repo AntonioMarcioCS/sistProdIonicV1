@@ -7,5 +7,6 @@ export interface PlantioDTO{
     colheita?: DateTime;
     qtd:number;
     canteiroId: number;
-    culturaId:number
+    culturaId:number;
+    imageUrl:string
 }
