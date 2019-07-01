@@ -1,11 +1,11 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Irrigações</ion-title>
+    <ion-title>{{plantio?.nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>{{plantio?.nome}}</h2>
+  <h3>Irrigações</h3>
   <ion-item-group>
   <ion-item-divider color="light">Irrigações realizadas:</ion-item-divider>
   <ion-list ion-item *ngFor="let irrigacao of irrigacoes">

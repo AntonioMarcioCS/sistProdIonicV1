@@ -5,8 +5,8 @@ export interface PlantioDTO{
     nome:string;
     data?: DateTime;
     colheita?: DateTime;
-    qtd:number;
-    canteiroId: number;
-    culturaId:number;
-    imageUrl:string
+    qtd?:number;
+    canteiroId?: number;
+    culturaId?:number;
+    //imageUrl:string
 }

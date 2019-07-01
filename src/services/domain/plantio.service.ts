@@ -13,10 +13,9 @@ export class PlantioService{
                 public storage: StorageService){
 
     }
-    find(id:string){
-        return this.http.get(`${API_CONFIG.baseUrl}/plantios/${id}`);
+    find(id:string): Observable<PlantioDTO>{
+        return this.http.get<PlantioDTO>(`${API_CONFIG.baseUrl}/plantios/${id}`);
     }
-
     findByCanteiro(canteiro_id:string){
         return this.http.get<PlantioDTO[]>(`${API_CONFIG.baseUrl}/plantios/?canteiros=${canteiro_id}`);
     }
@@ -35,4 +34,17 @@ export class PlantioService{
             }
         );
     }
+    update(obj:PlantioDTO, plantio_id:string){
+        return this.http.put(
+            `${API_CONFIG.baseUrl}/plantios/${plantio_id}`,
+            obj,
+            {
+                observe:'response',
+                responseType: 'json'
+            }
+        );
+        
+    }
+
+
 }

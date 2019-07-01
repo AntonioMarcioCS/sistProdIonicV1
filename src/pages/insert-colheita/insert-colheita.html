@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{plantio?.nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-item-group>
+    <h3>Colheitas</h3>
+    <p>Plantado em: {{plantio?.data}}<br> 
+      Previsão de Colheita:<br> 
+      {{plantio?.colheita}}<br>
+      Quantidade atual: {{plantio?.qtd}}<br>
+    </p>
+  </ion-item-group>
+  <ion-item-group>
+  <ion-item-divider color="light">Colheitas realizadas:</ion-item-divider>
+  <ion-list ion-item *ngFor="let colheita of colheitas">
+    <ion-item>
+      <h2>Data: {{colheita?.data}}</h2>
+      <h2>Quantidade: {{colheita?.qtd}}</h2>
+    </ion-item> 
+  </ion-list>
+  </ion-item-group>
+  <ion-item-group>
+  <ion-item-divider color="light">Nova colheita:</ion-item-divider>
+  <form [formGroup]="formGroup" (ngSubmit)="signupColher(); $event.preventDefault()">      
+    <ion-item>
+      <ion-label stacked>Quantidade colhida:</ion-label>
+      <ion-input formControlName="qtd" type="number"></ion-input>
+    </ion-item>
+    <p class="danger" *ngIf="formGroup.controls.qtd.dirty && formGroup.controls.qtd.errors" margin-left>Valor inválido</p>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Realizar colheita</button>
+  </form>
+  </ion-item-group>
+</ion-content>

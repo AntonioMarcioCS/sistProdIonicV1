@@ -46,13 +46,10 @@ export class CanteiroDetalhePage {
         this.canteiro = response;
       },
         error => { });
-    //Fazer o método p pegar só a ultima irrigação
-    //this.irrigacaoService.findByPlantio().subscribe(response =>{this.})
  
   }
 
   showPlantar(canteiro_id: string) {
-    //estou tentando jogar sistema para InsertPlantioPage, para usar no POP
     this.navCtrl.push('InsertPlantioPage', { canteiro_id: canteiro_id, sistema: this.canteiro.sistemaId });
   }
 
@@ -62,7 +59,9 @@ export class CanteiroDetalhePage {
   showFertilizar(plantio_id:string){
     this.navCtrl.push('InsertFertilizacaoPage', { plantio: plantio_id, canteiro: this.canteiro.id });
   }
-
+  showColheita(plantio_id:string, cultura_id:number, qtd:string){
+    this.navCtrl.push('InsertColheitaPage', {plantio: plantio_id, canteiro: this.canteiro.id, cultura: cultura_id, quantidade:qtd});
+  }
 
   presentLoading() {
     let carregando = this.loadingControl.create({

@@ -58,7 +58,7 @@ export class InsertPlantioPage {
   }
 
   showInsertOk(){
-    let canteiroId = this.navParams.get("canteiro_id");;
+    let canteiroId = this.navParams.get("canteiro_id");
     let sistemaId = this.navParams.get("sistema");
     let alert = this.alertCtrl.create({
       title: 'Sucesso!',

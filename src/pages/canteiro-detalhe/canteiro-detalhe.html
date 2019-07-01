@@ -24,7 +24,7 @@
       <h2>Previsão de Colheita: {{plantio?.colheita}}</h2>
       <button ion-button color="secondary"  small (click)="showIrrigar(plantio?.id)">Irrigação</button>
       <button ion-button color="warning"  small (click)="showFertilizar(plantio?.id)">Fertil</button>
-      <button ion-button color="success"  small>Colher</button>
+      <button ion-button color="success"  small (click)="showColheita(plantio?.id, plantio?.culturaId, plantio?.qtd)">Colher</button>
     </ion-card-content>
   </ion-card>
   <button ion-button block (click)="showPlantar(canteiro?.id)">Plantar</button>

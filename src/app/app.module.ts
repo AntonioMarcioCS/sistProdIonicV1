@@ -20,6 +20,7 @@ import { CulturaService } from '../services/domain/cultura.service';
 import { AnimalService } from '../services/domain/animal.service';
 import { IrrigacaoService } from '../services/domain/irrigacao.service';
 import { FertilizanteService } from '../services/domain/fertilizante.service';
+import { ColheitaService } from '../services/domain/colheita.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { FertilizanteService } from '../services/domain/fertilizante.service';
     CulturaService,
     AnimalService,
     IrrigacaoService,
-    FertilizanteService
+    FertilizanteService,
+    ColheitaService
   ]
 })
 export class AppModule {}

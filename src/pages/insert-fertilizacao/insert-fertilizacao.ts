@@ -47,10 +47,9 @@ export class InsertFertilizacaoPage {
       },
         error => { });
     
-    //não tá funcioando  
     this.plantioService.find(plantio_id)
       .subscribe(response => {
-         this.plantio = response['content'];
+         this.plantio = response;
       },
         error => { });
   }
